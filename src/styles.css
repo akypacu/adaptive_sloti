@@ -1,0 +1,529 @@
+.App {
+   font-family: sans-serif;
+   text-align: center;
+ }
+ body{  
+   background: rgb(255, 238, 182);
+  
+ }
+ .bcontainer{
+   display:grid;
+ width:100%;
+ height:100vh;
+   grid-template-rows:30% 70%;
+ justify-content: center;
+ text-align: center;
+ 
+ }
+ .title{
+   grid-row: 1/2;
+   font-size:6em;
+   position: relative;
+   color:transparent;
+   text-transform: uppercase;
+   font-weight: bold;
+   font-family: Comic Sans MS, Comic Sans, cursive;
+   /* transform:translate(-50%,-50%); */
+ }
+ .title span:nth-child(1){
+   position: absolute;
+   transform:translate(-50%,0);
+   color:rgb(243, 127, 3);
+   transition: 0.5s;
+   clip-path: polygon(0 0 ,100% 0,100% 50%, 2% 50%);
+   overflow: hidden;
+ 
+ }
+ .title:hover span:nth-child(1){
+ transform:translate(-50%,-18px);
+ }
+ .title span:nth-child(2){
+   position: absolute;
+   transform:translate(-50%,0);
+ color:rgb(243, 127, 3);
+ transition: 0.5s;
+ clip-path: polygon(0 50% ,100% 50%,100% 100%, 0% 100%);
+ overflow: hidden;
+ 
+ }
+ .title:hover span:nth-child(2){
+   transform:translate(-50%,18px);
+   }
+ .title span:nth-child(3){
+   position: absolute;
+   transform:translate(-50%,150%) scaleY(0);
+   color:white;
+   background-color: black;
+   transition: 0.5s;
+   font-size: 0.25em;
+   text-align: center;
+   letter-spacing: 0.7em;
+   width:65%;
+   padding-left: 20px;
+   transition: 0.5s;
+   border-radius: 5px
+   }
+ 
+ .title:hover span:nth-child(3){
+   transform:translate(-50%,150%) scaleY(1);
+ }
+ .slot-machine{
+   position: relative;
+   grid-row: 2/3;
+   margin: auto;
+   bottom: 0;
+   left: 0;
+   right: 0;
+   width: 100vh;
+   height: 100vh;
+   display: flex;
+   justify-content: center; 
+   margin-top: -100px;
+   transition: 0.3s transform;
+ }
+ .top {
+   position: absolute;
+   margin: 0 auto;
+   top: 0vh;
+   width: 90vh;
+   height: 14vh;
+   border-top-left-radius: 3.5vh;
+   border-top-right-radius: 3.5vh;
+   background: gold;
+   border: 2px solid black;
+   border-bottom: 1px solid black;
+ 
+ }
+ .container{  
+     
+     position: absolute;
+     top: 14vh;
+     width: 113vh;
+     height: 60vh;
+     border-radius: 2.5vh;
+     background: gold;
+     display: flex;
+     justify-content: center;
+     border: 2px solid black;
+ 
+ }
+ .win{
+   position: absolute;
+   top:40vh;
+   background: gold;
+   visibility: hidden/*visible*/;
+ }
+ 
+ .stick2 {
+   position: absolute;
+   top: 10vh;
+   left: 113vh;
+   width: 16vh;
+   height: 4.5vh;
+   border-bottom-right-radius: 2vh;
+   border-top-right-radius: 2vh;
+   background: rgb(110, 110, 110);
+ }
+ 
+ .stick {
+   position: absolute;
+   top: 5vh;
+   left: 125.5vh;
+   width: 3.5vh;
+   height: 8vh;
+   border-radius: 1vh;
+   background: rgb(110, 110, 110);
+ }
+ .ball {
+   position: absolute;
+   top: 1vh;
+   left: 124vh;
+   width: 6vh;
+   height: 6vh;
+   border-radius: 999em;
+   background: gold;
+ }
+ @keyframes down{
+ 0%{height: 6vh;}
+ 60%{top: 11vh; height: 4vh;}
+ 100%{height: 6vh;}
+ }
+ @keyframes press{
+ 0%{  top: 1vh;}
+ 50%{  top:13vh;}
+ 100%{  top: 1vh;}
+ }
+ .ball:hover{
+   box-shadow: 0 0 1.2vh gold,0 0 2.2vh gold;   
+ }
+ .ye-container{  
+   position: absolute;
+   top:2.5vh;
+   margin: 0 auto;
+   width: 40vh;
+   height: 18vh;  
+   background: rgb(197, 168, 2);
+ }
+ #Box1{
+   position: absolute;
+   top:2.5vh;
+   left:1vh;
+   margin: 0 auto;
+   width: 12vh;
+   height: 13vh;  
+   background: white;   
+   display: flex;
+   justify-content: center;
+ }
+ #Box2{
+   position: absolute;
+   top:2.5vh;
+   left:14vh;
+   margin: 0 auto;
+   width: 12vh;
+   height: 13vh;  
+   background: white;
+   display: flex;
+   justify-content: center;
+ }
+ #Box3{
+   position: absolute;
+   top:2.5vh;
+   left:27vh;
+   margin: 0 auto;
+   width: 12vh;
+   height: 13vh;  
+   background: white;
+   display: flex;
+   justify-content: center;
+ }
+ .Slot1{
+   position: relative;
+   font-size: 5vh;
+   top:25%
+ }
+ .Slot2{
+   position: relative;
+   font-size: 5vh;
+   top:25%
+ }
+ .Slot3{
+   position: relative;
+   font-size: 5vh;
+   top:25%
+ }
+ .white-dot{
+   position: absolute;
+   top:3.5vh;
+   left:33vh;
+   width: 5.5vh;
+   height: 5.5vh;
+   border-radius:999em;
+   background: white;
+ }
+ .yellow-dot{
+   position: absolute;
+   top:3.5vh;
+   left:33vh;
+   width: 6vh;
+   height: 6vh;
+   border-radius:999em;
+   background: rgb(197, 168, 2);
+ }
+ .yellow-dot2{
+   position: absolute;
+   top:3.5vh;
+   left:41vh;
+   width: 6vh;
+   height: 6vh;
+   border-radius:999em;
+   background: rgb(197, 168, 2);
+ }
+ .white-dot2{
+   position: absolute;
+   top:3.5vh;
+   left:41vh;
+   width: 5.5vh;
+   height: 5.5vh;
+   border-radius:999em;
+   background: white;
+ }
+ .yellow-dot3{
+   position: absolute;
+   top:3.5vh;
+   left:49vh;
+   width: 6vh;
+   height: 6vh;
+   border-radius:999em;
+   background: rgb(197, 168, 2);
+ }
+ .white-dot3{
+   position: absolute;
+   top:3.5vh;
+   left:49vh;
+   width: 5.5vh;
+   height: 5.5vh;
+   border-radius:999em;
+   background: white;
+ }
+ .yellow-dot4{
+   position: absolute;
+   top:3.5vh;
+   left:57vh;
+   width: 6vh;
+   height: 6vh;
+   border-radius:999em;
+   background: rgb(197, 168, 2);
+ }
+ .white-dot4{
+   position: absolute;
+   top:3.5vh;
+   left:57vh;
+   width: 5.5vh;
+   height: 5.5vh;
+   border-radius:999em;
+   background: white;
+ }
+ .yellow-dot5{
+   position: absolute;
+   top:3.5vh;
+   left:65vh;
+   width: 6vh;
+   height: 6vh;
+   border-radius:999em;
+   background: rgb(197, 168, 2);
+ }
+ .white-dot5{
+   position: absolute;
+   top:3.5vh;
+   left:65vh;
+   width: 5.5vh;
+   height: 5.5vh;
+   border-radius:999em;
+   background: white;
+ }
+ .white-dot6{
+   position: absolute;
+   top:3.5vh;
+   left:25vh;
+   width: 5.5vh;
+   height: 5.5vh;
+   border-radius:999em;
+   background: white;
+ }
+ .w-dot6{
+   position: absolute;
+   top:3.5vh;
+   left:25vh;
+   width: 6vh;
+   height: 6vh;
+   border-radius:999em;
+   background: rgb(197, 168, 2);
+ }
+ .white-dot7{
+   position: absolute;
+   top:3.5vh;
+   left:17vh;
+   width: 5.5vh;
+   height: 5.5vh;
+   border-radius:999em;
+   background: white;
+ }
+ .w-dot7{
+   position: absolute;
+   top:3.5vh;
+   left:17vh;
+   width: 6vh;
+   height: 6vh;
+   border-radius:999em;
+   background: rgb(197, 168, 2);
+ }
+ 
+ /*https://blog.prototypr.io/how-i-started-drawing-css-images-3fd878675c89*/
+ /*https://guobingyu.gitbooks.io/-binda_program_book/content/slot_machine.html*/
+ 
+ .App {
+   font-family: sans-serif;
+   text-align: center;
+ }
+ 
+ @import url("https://fonts.googleapis.com/css?family=Cairo");
+ 
+ @keyframes spin {
+   to {
+     transform: rotate(360deg);
+   }
+ }
+ 
+ body {
+   background-color: #292929;
+ }
+ 
+ #repeatButton {
+   appearance: none;
+   border: none;
+   background: url(https://andyhoffman.codes/random-assets/img/slots/repeat.png)
+     transparent 0 0 no-repeat;
+   background-size: cover;
+   width: 48px;
+   height: 48px;
+   position: absolute;
+   top: 10px;
+   right: 20px;
+   cursor: pointer;
+  
+ }
+ 
+ h1 {
+   font-size: 150%;
+   padding: 0.25em 0.5em;
+   font-family: "Cairo", sans-serif;
+   transition: 0.3s transform;
+ }
+ 
+ h1 span {
+   color: aliceblue;
+   border: 1px solid hsla(208, 100%, 97.1%, 0.2);
+   padding: 0.1em 0.2em;
+   transition: 0.3s transform;
+ }
+ 
+ .icons {
+   display: inline-block;
+   width: 128px;
+   height: 564px;
+   overflow: hidden;
+   background: #fff
+     url(https://andyhoffman.codes/random-assets/img/slots/sprite5.png) repeat-y;
+   will-change: backgroundPosition;
+   transition: 0.3s background-position ease-in-out;
+   padding: 0 80px;
+   transform: translateZ(0);
+ }
+ 
+ .icons:nth-child(2) {
+   margin: 0 10px;
+ }
+ 
+ * {
+   box-sizing: border-box;
+ }
+ 
+ .spinner-container {
+   overflow: hidden;
+   height: 632px;
+   padding: 2em;
+   transform: translate(-50%, -50%) scale(0.62, 0.62);
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   display: flex;
+   transition: 0.3s transform;
+ }
+ 
+ .app-wrap.winner-false {
+   animation: linear 1s spin;
+ }
+ 
+ .spinner-container::after {
+   position: absolute;
+   content: "";
+   display: block;
+   height: 180px;
+   top: 50%;
+   transform: translateY(-50%);
+   right: 30px;
+   left: 30px;
+   background: rgba(255, 0, 0, 0.1);
+ }
+ 
+ .gradient-fade {
+   position: absolute;
+   top: 32px;
+   right: 32px;
+   bottom: 32px;
+   left: 32px;
+   background: linear-gradient(
+     to bottom,
+     rgba(64, 64, 64, 1) 0%,
+     rgba(64, 64, 64, 0) 7%,
+     rgba(64, 64, 64, 0) 93%,
+     rgba(64, 64, 64, 1) 100%
+   );
+ }
+ /*====================================================================1096=================================================================== */
+ @media screen and (max-width: 1096px) {
+   .spinner-container {
+     transform: translate(-50%, -50%) scale(0.55, 0.55);
+   }
+ }
+ @media screen and (max-width: 1096px) {
+  .slot-machine {
+    transform: translate(-10%, -10%) scale(0.8, 0.8);
+  }
+}
+@media screen and (max-width: 1096px) {
+  h1 {
+    transform: translate(-10%, 0%) scale(0.9, 0.9);
+  }
+}
+/*====================================================================768=================================================================== */
+@media screen and (max-width: 768px) {
+  .spinner-container {
+    transform: translate(-50%, -50%) scale(0.55, 0.55);
+  }
+}
+@media screen and (max-width: 768px) {
+ .slot-machine {
+   transform: translate(-10%, -10%) scale(0.6, 0.6);
+ }
+}
+@media screen and (max-width: 768px) {
+ h1 {
+   transform: translate(-9%, 10%) scale(0.9, 0.9);
+ }}
+/*====================================================================425=================================================================== */
+@media screen and (max-width: 426px) {
+  .spinner-container {
+    transform: translate(-50%, -50%) scale(0.5, 0.4);
+  }
+}
+@media screen and (max-width: 426px) {
+ .slot-machine {
+   transform: translate(-5%, -10%) scale(0.45, 0.7);
+ }
+}
+@media screen and (max-width: 426px) {
+ h1 {
+   transform: translate(-5%, 10%) scale(0.9, 0.9);
+ }}
+/*====================================================================376=================================================================== */
+@media screen and (max-width: 376px) {
+  .spinner-container {
+    transform: translate(-50%, -50%) scale(0.5, 0.4);
+  }
+}
+@media screen and (max-width: 376px) {
+ .slot-machine {
+   transform: translate(-2%, -3%) scale(0.4, 0.75);
+ }
+}
+@media screen and (max-width: 376px) {
+ h1 {
+   transform: translate(-3%, 10%) scale(0.75, 0.75);
+ }}
+/*====================================================================321=================================================================== */
+@media screen and (max-width: 321px) {
+  .spinner-container {
+    transform: translate(-50%, -50%) scale(0.6, 0.5);
+  }
+}
+@media screen and (max-width: 321px) {
+ .slot-machine {
+   transform: translate(1%, -3%) scale(0.4, 0.7);
+ }
+}
+@media screen and (max-width: 321px) {
+ h1 {
+   transform: translate(0%, 20%) scale(0.9, 0.9);
+ }}
